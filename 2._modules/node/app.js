@@ -13,6 +13,13 @@ app.get("/endpoint", (req, res) => {
     res.send({ message: "OK OK OK" });
 });
 
+app.get("/pythonmessage", async (req, res) => {
+    const pythonResponse = await fetch("http://127.0.0.1:8000/mymessage");
+    const pythonMessage = await pythonResponse.json();
+    
+    res.send(pythonMessage);
+});
+
 app.listen(3000, () => {
     console.log("Server is running on", 3000);
 });
