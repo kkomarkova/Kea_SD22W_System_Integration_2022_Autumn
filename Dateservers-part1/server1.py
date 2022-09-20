@@ -8,7 +8,7 @@ from datetime import datetime
 app = FastAPI()
 
 
-@app.get("/")
+@app.get("/time")
 def read_root():
     iso_date = datetime.now()
     return {'ISO DateTime:', iso_date}
