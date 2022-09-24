@@ -1,9 +1,10 @@
 import fetch from 'node-fetch';
-import express from 'express';
+import express, { response } from 'express';
 
 // const express = require('express')
 const app = express()
 const port = 6000
+
 
 app.get('/', (req, res) => {
  var date = new Date().toISOString();
@@ -19,10 +20,17 @@ app.listen(port, () => {
 // .then(res => res.text())
 // .then(text => console.log(text));
 
-//Fetch the date from the python server
-fetch('http://127.0.0.1:8000/time')
-.then(res=> res.json())
-.then(json => {
-  console.log("Date from the python server is : ");
-  console.log(json[0]);
+// JSON - I am running the file on local host with using command npx http-server 
+fetch('http://192.168.56.1:8080/me.json')
+.then(response => {
+   return response.json();
+   
 })
+.then(jsondata => console.log(jsondata));
+
+//Read Text file 
+fetch('http://192.168.56.1:8080/me')
+.then(res => res.text())
+.then(text => console.log(text));
+
+
