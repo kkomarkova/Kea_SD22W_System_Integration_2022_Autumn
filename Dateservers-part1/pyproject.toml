@@ -6,8 +6,8 @@ authors = ["Katerina Komarkova <58290791+kkomarkova@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-uvicorn = "^0.18.3"
 fastapi = "^0.85.0"
+uvicorn = "^0.18.3"
 
 [tool.poetry.dev-dependencies]
 
